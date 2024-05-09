@@ -1,0 +1,114 @@
+<resources>
+    <string name="app_name">Giggly</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signinText">Signin</string>
+    <string name="signupText">Signup</string>
+    <string name="WelcomeText">Welcome to Giggly</string>
+    <string name="SigninAboutText">Welcome back, signin to join your friends</string>
+    <string name="SignupAboutText">Welcome, signup to share your comedy</string>
+    <string name="WelcomeAboutText">By continuing you agree to Gigglys Terms of service and acknowledge you have read our Privacy Policy.</string>
+    <string name="title_activity_email_verification">emailVerificationActivity</string>
+    <string name="VerifyEmail">Verify your email</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Log-Out</string>
+    <string name="account_details">Account Details</string>
+    <string name="bugreportEmail">Bug Report</string>
+    <string name="changeemailInfo">To change your email associated with this account, enter the new email, retype the email and then enter your password. An email will be sent to confirm the change.</string>
+    <string name="askpermission">Ask for permission</string>
+    <string name="whycollectinfo">At Giggly, we display and store information on your account to personalize your experience, facilitate connections, enhance security, and improve our services. Your data is stored securely and in compliance with legal requirements. Your privacy and consent are our priority.</string>
+    <string name="privacyPolicy">
+    <![CDATA[
+    <b>1. Information Collection:</b><br/>
+    a. The app collects certain information for the purpose of providing services.<br/>
+    b. Users can control the types of information shared through privacy settings.<br/>
+    c. The app does not sell or share personal information with third parties for marketing purposes.<br/><br/>
+
+    <b>2. Cookies and Tracking:</b><br/>
+    a. The app may use cookies or similar technologies for a better user experience.<br/>
+    b. Users can manage cookie preferences through browser settings.<br/><br/>
+
+    <b>3. Security:</b><br/>
+    a. The app employs security measures to protect user data.<br/>
+    b. Users are responsible for keeping their account credentials secure.<br/><br/>
+
+    <b>4. Personal Information We Collect:</b><br/>
+    a. Giggly collects the following personal information:<br/>
+       i. Name<br/>
+       ii. Email Address<br/>
+       iii. Username<br/>
+       iv. Bio<br/>
+       v. Image URL<br/>
+       vi. Search History<br/><br/>
+
+    <b>5. How We Use Your Personal Information:</b><br/>
+    a. Provide, operate, and maintain our services.<br/>
+    b. Improve, personalize, and expand our services.<br/>
+    c. Understand and analyze how you use our services.<br/>
+    d. Develop new products, services, features, and functionality.<br/>
+    e. Communicate with you, either directly or through one of our partners.<br/><br/>
+
+    <b>6. Sharing Your Personal Information:</b><br/>
+    a. Giggly may share your personal information in the following situations:<br/>
+       i. With Service Providers: We may share your personal information with third-party service providers to monitor and analyze the use of our services.<br/>
+       ii. For Business Transfers: If Giggly is involved in a merger, acquisition, or asset sale, your personal information may be transferred.<br/><br/>
+
+    <b>7. Security of Your Personal Information:</b><br/>
+    a. The security of your personal information is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure.<br/><br/>
+
+    <b>8. Changes to Privacy Policy:</b><br/>
+    a. Users will be informed of any changes to the privacy policy.<br/>
+    b. Continued use of the app after changes constitutes acceptance of the updated policy.<br/>
+    ]]>
+</string>
+
+    <string name="termsofservice">
+        <![CDATA[
+        <b>1. User Accounts:</b><br/>
+        a. Users must be at least 13 years old to create an account.<br/>
+        b. Users are responsible for maintaining the security of their account credentials.<br/>
+        c. Users agree to provide accurate and current information during the registration process.<br/><br/>
+
+        <b>2. User Conduct:</b><br/>
+        a. Users shall not engage in any unlawful or harmful activities while using the app.<br/>
+        b. Users shall not infringe on the intellectual property rights of others.<br/>
+        c. Users shall not attempt to gain unauthorized access to the app or its systems.<br/><br/>
+
+        <b>3. Content:</b><br/>
+        a. Users are solely responsible for the content they post on the app.<br/>
+        b. The app reserves the right to remove any content that violates these terms.<br/>
+        c. Users retain ownership of their content but grant the app a license to use, display, and distribute it.<br/><br/>
+
+        <b>4. Termination:</b><br/>
+        a. The app may terminate or suspend a users account for violations of these terms.<br/>
+        b. Users can terminate their account at any time by following the provided instructions.<br/><br/>
+
+        <b>5. Changes to Terms:</b><br/>
+        a. Users will be notified of any changes to the terms of use.<br/>
+        b. Continued use of the app after changes constitutes acceptance of the updated terms.<br/><br/>
+
+        <b>6. Disclaimer:</b><br/>
+        a. The app is provided "as is" without warranties of any kind.<br/>
+        b. The app is not responsible for the accuracy or reliability of user-generated content.<br/><br/>
+
+        <b>7. Limitation of Liability:</b><br/>
+        a. The app shall not be liable for any indirect, incidental, or consequential damages.<br/>
+        b. Users agree to use the app at their own risk.<br/><br/>
+
+        <b>8. Governing Law:</b><br/>
+        a. These terms are governed by and construed in accordance with the laws of Ireland.<br/>
+        b. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts of Ireland.
+        ]]>
+    </string>
+    <string name="firstscreenInviteText">Connect with people from all around the world and discover what\'s happening in real-time. </string>
+    <string name="default_web_client_id">892837023766-fqgingae02ohohuh8eeltual8lb9ss9r.apps.googleusercontent.com</string>
+    <string name="googleclient_id">892837023766-g7thuvmeg5m5k7gm4e7h19j9qalqk5ne.apps.googleusercontent.com</string>
+    <string name="native_ad_id">ca-app-pub-3881246768570702/1447674343</string>
+    <string name="native_ad_view">ca-app-pub-3881246768570702/1447674343</string>
+    <string name="update_required">Update required</string>
+    <string name="to_use_this_app_please_update_to_the_latest_version">To use this app, please update to the latest version</string>
+    <string name="update">Update</string>
+    <string name="close">Close</string>
+</resources>

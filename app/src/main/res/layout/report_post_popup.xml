@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/edit_text_background"
+    android:layout_margin="10dp"
+    android:backgroundTint="?attr/optionPageBackground2">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Report"
+    android:textSize="20sp"
+    android:fontFamily="@font/baloo_tamma_2_medium"
+    android:textColor="?attr/paragraph2"
+    android:textStyle="bold"
+    android:layout_marginTop="20dp"
+    android:layout_marginHorizontal="20dp"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Why are you reporting this post?"
+        android:textSize="16sp"
+        android:fontFamily="@font/lato"
+        android:textColor="?attr/paragraph2"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        />
+    <RadioGroup
+        android:id="@+id/reasonRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/lato">
+
+        <RadioButton
+            android:id="@+id/nudityRadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nudity"
+            />
+
+        <RadioButton
+            android:id="@+id/spamRadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spam" />
+
+        <RadioButton
+            android:id="@+id/illegalRadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Illegal" />
+
+        <RadioButton
+            android:id="@+id/suicideRadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suicide or Self Injury" />
+
+        <RadioButton
+            android:id="@+id/violenceRadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Violence" />
+
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:id="@+id/submitreport"
+        android:fontFamily="@font/baloo_tamma_2_medium"
+        android:layout_height="wrap_content"
+        android:text="Submit report"
+        android:paddingVertical="15dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/yellow"
+        android:layout_marginHorizontal="20dp"/>
+
+</LinearLayout>

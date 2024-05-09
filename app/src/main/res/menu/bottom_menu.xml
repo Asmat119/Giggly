@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_home"
+        android:icon="@drawable/home__2_"
+        android:title=""/>
+    <item android:id="@+id/nav_search"
+        android:icon="@drawable/search__1_"
+        android:title=""/>
+    <item android:id="@+id/nav_add"
+        android:icon="@drawable/plus"
+        android:title=""/>
+    <item android:id="@+id/nav_explore"
+        android:icon="@drawable/compass"
+        android:title=""/>
+    <item android:id="@+id/nav_profile"
+        android:icon="@drawable/profile__1_"
+        android:title=""/>
+
+
+</menu>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="?attr/mainBackground"
+    android:layout_height="match_parent"
+    android:id="@+id/loginContainer"
+    tools:context=".LoginActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/mainBackground"
+        android:fontFamily="@font/raleway_medium"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- Back button on the left -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:contentDescription="@string/signinText"
+
+            android:src="@drawable/down_arrow"
+            app:tint="?attr/arrows2" />
+
+        <!-- Register link on the right -->
+        <TextView
+            android:id="@+id/register_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="30dp"
+            android:paddingEnd="16dp"
+            android:text="@string/signupText"
+            android:fontFamily="@font/lato"
+            android:textColor="?attr/paragraph2"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:textSize="35sp"
+            android:layout_marginHorizontal="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textColor="?attr/title2"
+            android:layout_height="wrap_content"
+            android:text="@string/signinText" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/lato"
+            android:textColor="?attr/paragraph2"
+            android:text="@string/SigninAboutText" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@drawable/topbothroundcornersdarkgrey"
+        android:elevation="30dp"
+        android:backgroundTint="?attr/curvedBackground2"
+        android:orientation="vertical"
+        android:paddingHorizontal="30dp"
+        android:paddingTop="40dp">
+
+        <EditText
+            android:id="@+id/emailLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edit_text_background"
+            android:textColorHint="?attr/editTextFont2"
+            android:backgroundTint="?attr/editTextBackground2"
+            android:hint="Email"
+            android:fontFamily="@font/lato"
+            android:textColor="?attr/editTextFont2"
+
+
+            android:drawableLeft="@drawable/email_icon"
+            android:padding="15dp"
+            android:drawableTint="@color/yellow"
+            android:drawablePadding="10dp"
+            android:inputType="textEmailAddress"
+            android:textSize="12sp"
+            android:imeOptions="actionNext" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <EditText
+                android:id="@+id/passwordLogin"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableTint="@color/yellow"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="?attr/editTextBackground2"
+                android:textColorHint="?attr/editTextFont2"
+                android:hint="Password"
+                android:fontFamily="@font/lato"
+                android:drawableLeft="@drawable/password_icon"
+                android:inputType="textPassword"
+                android:textSize="12sp"
+                android:textColor="?attr/editTextFont2"
+                android:drawablePadding="10dp"
+                android:padding="15dp"
+                android:layout_weight="9"
+                android:imeOptions="actionDone" />
+
+<ImageView
+    android:layout_width="60dp"
+    android:layout_height="50dp"
+
+    android:id="@+id/showpasswordbtn"
+    android:layout_weight="1"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="10dp"
+    android:src="@drawable/hide"
+    android:padding="13dp"
+    android:tint="?attr/paragraph2"
+    android:background="@drawable/edit_text_background"
+    android:backgroundTint="?attr/editTextBackground2"
+
+    android:layout_marginRight="3dp"/>
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/forgotpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="5dp"
+
+            android:fontFamily="@font/lato"
+            android:textColor="?attr/paragraph2"
+            android:text="Forgot password?" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            app:strokeColor="@color/white"
+            app:cornerRadius="7dp"
+            android:backgroundTint="?attr/buttons2"
+            android:padding="15dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textStyle="bold"
+            android:text="@string/signinText"
+            android:textSize="15sp"
+            android:textColor="?attr/buttonsText2" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:textStyle="bold"
+android:textAlignment="center"
+            android:textColor="?attr/paragraph2"
+            android:text="Or" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signinWithGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="?attr/googlebutton"
+            android:padding="15dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:text="Sign in with Google"
+            android:textColor="?attr/buttonsText2"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="7dp"
+            app:icon="@drawable/googlelogotrans"
+            app:iconGravity="textStart"
+            app:iconPadding="20dp"
+            app:iconSize="30dp"
+            app:iconTint="?attr/paragraph2"
+            app:strokeColor="@color/white" />
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

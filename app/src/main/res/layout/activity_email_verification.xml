@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".emailVerificationActivity">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:elevation="4dp"
+        android:id="@+id/backbtn"
+        android:layout_margin="20dp"
+        android:src="@drawable/arrow_back_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/arrows2" />
+
+    <ImageView
+        android:id="@+id/refreshemail"
+        android:layout_width="30dp"
+        android:background="@drawable/edit_text_background"
+        android:layout_height="30dp"
+        android:padding="7dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/yellow"
+        android:src="@drawable/refresh"
+        android:elevation="4dp"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:cornerRadius="7dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="40dp"
+
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?attr/optionPageBackground2">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/black_and_yellow_email_verification_page_cartoon" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:text="@string/VerifyEmail"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textAlignment="center"
+            android:textColor="?attr/title2"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Do not leave this page!"
+            android:fontFamily="@font/lato"
+            android:textAlignment="center"
+            android:textColor="?attr/title2"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/youhaveenteredemailtxtbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You have entered dhiuhfue@gmail.com as the email address for this account. "
+            android:textAlignment="center"
+            android:fontFamily="@font/lato"
+            android:textColor="?attr/paragraph2"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="Please verify this email by clicking the button below. Once verified, click the refresh button"
+            android:textAlignment="center"
+            android:fontFamily="@font/lato"
+            android:textColor="?attr/paragraph2"/>
+
+        <Button
+            android:id="@+id/verifyEmailAgainBtn"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            app:cornerRadius="7dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:backgroundTint="@color/yellow"
+            android:text="@string/VerifyEmail" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--<a href="https://www.freepik.com/free-vector/confirmed-concept-illustration_13124789.htm#query=verify%20email&position=0&from_view=keyword&track=ais">Image by storyset</a> on Freepik-->

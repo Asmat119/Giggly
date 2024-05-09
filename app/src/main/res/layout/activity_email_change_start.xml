@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkdarkgrey"
+    tools:context=".changeEmailVerificationActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_medium"
+        android:background="@color/darkdarkgrey" />
+
+    <LinearLayout
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:padding="15dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+
+        android:background="@drawable/biotextbackground"
+        android:layout_margin="10dp"
+        android:elevation="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+       <TextView
+           android:id="@+id/emailDetails"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Loading..."
+           android:textSize="35sp"
+           android:layout_marginHorizontal="10dp"
+           android:layout_marginBottom="30dp"
+           android:textColor="@color/white"
+           android:fontFamily="@font/raleway_medium"/>
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Only you can see your email. Your email is always private on these accounts"
+            android:textSize="15sp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/mediumGrey"
+            android:fontFamily="@font/raleway_medium"/>
+
+
+
+
+
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ChangeEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+android:layout_below="@id/details"
+        android:layout_marginStart="10dp"
+        app:cornerRadius="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/yellow"
+        android:fontFamily="@font/raleway_medium"
+        android:gravity="center_horizontal"
+        android:padding="15dp"
+        android:text="Change email"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:strokeColor="@color/white" />
+
+
+
+</RelativeLayout>

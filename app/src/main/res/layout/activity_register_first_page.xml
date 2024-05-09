@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/mainBackground"
+    tools:context=".RegisterFirstPageActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="?attr/mainBackground"
+        android:fontFamily="@font/raleway_medium"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Back button on the left -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:paddingHorizontal="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:contentDescription="@string/signinText"
+
+            android:src="@drawable/arrow_back_icon"
+            app:tint="?attr/arrows2" />
+
+        <!-- Register link on the right -->
+        <TextView
+            android:id="@+id/register_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:layout_marginStart="30dp"
+            android:paddingEnd="16dp"
+            android:text="@string/signupText"
+            android:textColor="?attr/paragraph2"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/topbothroundcornersyellow"
+        android:backgroundTint="?attr/curvedBackground2"
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        android:paddingHorizontal="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hi!"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textColor="?attr/paragraph2"
+            android:textStyle="bold"
+            android:textSize="35sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lets get to know each other, who are you?"
+            android:fontFamily="@font/lato"
+            android:textSize="27sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/lato"
+            android:text="Im joking... this is meant to be anonymous, enter in anything..."
+
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/firstnameRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+android:layout_marginTop="70dp"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="?attr/editTextBackground2"
+            android:drawableLeft="@drawable/name_icon"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/yellow"
+            android:hint="First Name (E.g The)"
+
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColor="?attr/colorOnPrimary"
+            android:textColorHint="?attr/colorOnPrimary"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/secondnameRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:layout_marginVertical="30dp"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="?attr/editTextBackground2"
+            android:drawableLeft="@drawable/name_icon"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/yellow"
+            android:hint="Second Name (E.g Comedian)"
+
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:padding="15dp"
+            android:textColor="?attr/colorOnPrimary"
+            android:textColorHint="?attr/colorOnPrimary"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/buttons2"
+        android:fontFamily="@font/baloo_tamma_2_medium"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="15dp"
+        android:padding="15dp"
+        android:text="Next"
+        android:textColor="?attr/buttonsText2"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:strokeColor="@color/white" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

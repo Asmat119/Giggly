@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="mainBackground" format="color" />
+    <attr name="editTextBackground2" format="color" />
+    <attr name="editTextFont2" format="color" />
+    <attr name="title2" format="color" />
+    <attr name="subtitle2" format="color" />
+    <attr name="paragraph2" format="color" />
+    <attr name="buttons2" format="color" />
+    <attr name="arrows2" format="color" />
+    <attr name="homepageBackground" format="color" />
+    <attr name="buttonsText2" format="color" />
+    <attr name="textViewtext2" format="color" />
+    <attr name="curvedBackground2" format="color" />
+    <attr name="optionButtonbackground2" format="color" />
+    <attr name="optionPageBackground2" format="color" />
+    <attr name="isDarkTheme" format="boolean" />
+    <attr name="startParagraph" format="color" />
+    <attr name="searchbar" format="color" />
+    <attr name="searchpageBackground" format="color" />
+    <attr name="postItemBackground" format="color" />
+    <attr name="postItemCategoryColor" format="color" />
+    <attr name="postitemLoadingImage" format="reference" />
+    <attr name="googlebutton" format="color" />
+    <attr name="dangerbuttons" format="color" />
+    <attr name="placeholdercolor" format="color"/>
+    <attr name="yellowbuttons" format="color"/>
+    <attr name="commentalternatingcolors" format="color"/>
+    <attr name="notificationColors" format="color"/>
+</resources>

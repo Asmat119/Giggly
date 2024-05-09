@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/native_ad_container"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+
+        <com.google.android.ads.nativetemplates.TemplateView
+            android:id="@+id/my_templatesmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:visibility="gone"
+
+            app:gnt_template_type="@layout/gnt_small_template_view" />
+
+
+                <com.google.android.ads.nativetemplates.TemplateView
+                    android:id="@+id/my_templatemedium"
+                    android:background="@drawable/rounded_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:gnt_template_type="@layout/gnt_medium_template_view" />
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="16dp"
+            android:layout_margin="1dp"
+
+            android:layout_height="wrap_content">
+
+        <com.google.android.ads.nativetemplates.TemplateView
+            android:id="@+id/my_templatecustom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:gnt_template_type="@layout/gnt_custom_small_template_view" />
+
+        </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

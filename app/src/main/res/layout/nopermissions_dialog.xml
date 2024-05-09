@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="30dp"
+
+        android:background="@drawable/dialog_bg2"
+        android:backgroundTint="@color/yellow"
+        android:elevation="0dp"
+        android:orientation="vertical"
+        android:padding="25dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp">
+
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/cancelBtn"-->
+        <!--            android:layout_width="30dp"-->
+        <!--            android:layout_height="30dp"-->
+        <!--            android:layout_gravity="end|top"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:background="@android:color/transparent"-->
+        <!--            android:src="@drawable/close_icon"-->
+        <!--            app:tint="@color/black" />-->
+
+<!--&gt;<a href="https://www.freepik.com/free-vector/hidden-concept-illustration_15742698.htm#query=no%20permission&position=15&from_view=keyword&track=ais">Image by storyset</a> on Freepik-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/yellow_and_black_no_permissions_cartoon_sad"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No permission!"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Head to the permissions tab in your settings to grant permissions, Head to Options then to Permissions"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:fontFamily="@font/lato"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancelBtn"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                app:cornerRadius="7dp"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:backgroundTint="@android:color/transparent"
+
+                android:text="Cancel"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:rippleColor="@color/navy"
+                app:strokeColor="@color/really_dark_navy" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/acceptBtn"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/baloo_tamma_2_medium"
+                android:layout_marginStart="5dp"
+                app:cornerRadius="7dp"
+                android:backgroundTint="@color/black"
+
+                android:text="Go!"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:rippleColor="@color/darkGrey"
+                app:strokeColor="@color/darkGrey" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/dialog_bg"
+        android:backgroundTint="@color/yellow"
+        android:elevation="0dp"
+        android:padding="15dp"
+        android:src="@drawable/permissions_icon"
+
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:tint="@color/black" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

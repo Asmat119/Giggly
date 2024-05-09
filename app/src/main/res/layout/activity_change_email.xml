@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/editTextBackground2"
+    tools:context=".ChangeEmailActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/editTextBackground2"
+        android:fontFamily="@font/raleway_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailchangeinfo"
+        android:text="@string/changeemailInfo"
+        android:layout_below="@id/toolbar"
+        android:fontFamily="@font/lato"
+        android:textSize="12sp"
+        android:paddingHorizontal="25dp"
+        android:textAlignment="center"
+        android:textColor="?attr/paragraph2"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:layout_below="@+id/emailchangeinfo"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/topbothroundcornersdarkgrey"
+        android:backgroundTint="?attr/curvedBackground2"
+        android:orientation="vertical"
+android:layout_marginTop="30dp"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <EditText
+            android:id="@+id/newEmailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+           android:backgroundTint="?attr/editTextBackground2"
+            android:background="@drawable/edit_text_backgrounddarkdarkgrey"
+            android:drawableLeft="@drawable/email_icon"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+
+            android:drawableTint="@color/yellow"
+            android:hint="New Email"
+android:elevation="3dp"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:padding="15dp"
+            android:textColor="?attr/paragraph2"
+            android:textColorHint="?attr/paragraph2"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/confirmEmailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:backgroundTint="?attr/editTextBackground2"
+            android:background="@drawable/edit_text_backgrounddarkdarkgrey"
+            android:drawableLeft="@drawable/email_icon"
+            android:drawablePadding="10dp"
+            android:elevation="3dp"
+            android:textColorHint="?attr/paragraph2"
+            android:drawableTint="@color/yellow"
+            android:textColor="?attr/paragraph2"
+
+            android:hint="Retype Email"
+            android:textStyle="bold"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:padding="15dp"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:backgroundTint="?attr/editTextBackground2"
+            android:background="@drawable/edit_text_backgrounddarkdarkgrey"
+            android:drawableLeft="@drawable/password_icon"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/yellow"
+            android:textStyle="bold"
+            android:hint="Password"
+            android:elevation="3dp"
+            android:textColorHint="?attr/paragraph2"
+            android:imeOptions="actionNext"
+            android:textColor="?attr/paragraph2"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/confirmEmailChangeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:backgroundTint="@color/yellow"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:background="@drawable/edit_text_background"
+            android:textStyle="bold"
+            android:padding="15dp"
+            app:cornerRadius="7dp"
+            android:textAlignment="center"
+            android:text="Change"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:strokeColor="@color/white" />
+    </LinearLayout>
+</RelativeLayout>

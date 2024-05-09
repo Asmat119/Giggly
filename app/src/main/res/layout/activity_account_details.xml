@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/optionPageBackground2"
+    tools:context=".AccountDetailsActivity"
+    android:orientation="vertical"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_medium"
+        android:background="?attr/optionPageBackground2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textColor="?attr/paragraph2"
+        android:textStyle="bold"
+        android:fontFamily="@font/baloo_tamma_2_medium"
+   android:textSize="16sp"
+        android:paddingStart="5dp"
+        android:paddingVertical="3dp"
+        android:layout_marginHorizontal="20dp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="17dp"
+            android:gravity="center_vertical"
+            android:elevation="3dp"
+            android:backgroundTint="?attr/optionButtonbackground2"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/user"
+                android:layout_marginEnd="20dp"
+                app:tint="?attr/paragraph2" />
+            <TextView
+                android:id="@+id/usernameDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:fontFamily="@font/lato"
+                android:textSize="14sp"
+                android:textColor="?attr/paragraph2"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textStyle="bold"
+        android:fontFamily="@font/baloo_tamma_2_medium"
+        android:textSize="16sp"
+        android:textColor="?attr/paragraph2"
+        android:paddingStart="5dp"
+        android:paddingVertical="3dp"
+        android:layout_marginHorizontal="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="17dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="?attr/optionButtonbackground2"
+            android:elevation="3dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/user"
+                android:layout_marginEnd="20dp"
+                app:tint="?attr/paragraph2"
+                />
+            <TextView
+                android:id="@+id/passwordDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fullname"
+                android:fontFamily="@font/lato"
+                android:textSize="14sp"
+                android:textColor="?attr/paragraph2"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textStyle="bold"
+        android:textColor="?attr/paragraph2"
+        android:paddingStart="5dp"
+        android:fontFamily="@font/baloo_tamma_2_medium"
+        android:textSize="16sp"
+        android:paddingVertical="3dp"
+        android:layout_marginHorizontal="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="17dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="?attr/optionButtonbackground2"
+            android:elevation="3dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/information"
+                android:layout_marginEnd="20dp"
+                app:tint="?attr/paragraph2"
+                />
+            <TextView
+                android:id="@+id/emailDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:fontFamily="@font/lato"
+                android:textSize="14sp"
+                android:textColor="?attr/paragraph2"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account actions"
+            android:textStyle="bold"
+            android:paddingStart="5dp"
+            android:textColor="?attr/paragraph2"
+            android:paddingVertical="3dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="20dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="?attr/yellowbuttons"
+            android:layout_marginHorizontal="20dp"
+            android:elevation="3dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="17dp"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/mail"
+                    android:layout_marginEnd="20dp"
+                    app:tint="?attr/paragraph2" />
+                <TextView
+                    android:id="@+id/toemailchanging"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Change email"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+
+                android:padding="17dp"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/padlock"
+                    android:layout_marginEnd="20dp"
+                    app:tint="?attr/paragraph2" />
+                <TextView
+                    android:id="@+id/topasswordchanging"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Change password"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dangerous"
+            android:textStyle="bold"
+            android:paddingStart="5dp"
+            android:layout_marginTop="10dp"
+            android:textColor="?attr/paragraph2"
+            android:paddingVertical="3dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="20dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="17dp"
+
+            android:backgroundTint="?attr/dangerbuttons"
+            android:gravity="center_vertical"
+            android:background="@drawable/edit_text_background"
+            android:elevation="3dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/attention"
+                android:layout_marginEnd="20dp"
+                app:tint="?attr/paragraph2" />
+            <TextView
+                android:id="@+id/deleteProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete profile"
+                android:fontFamily="@font/lato"
+                android:textSize="14sp"
+                android:textColor="?attr/paragraph2"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+
+

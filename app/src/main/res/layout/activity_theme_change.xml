@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/optionPageBackground2"
+    tools:context=".ThemeChangeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/optionPageBackground2"
+        android:fontFamily="@font/raleway_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailchangeinfo"
+        android:text="Changing theme will result in the app having to restart"
+        android:layout_below="@id/toolbar"
+        android:paddingHorizontal="25dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/lato"
+        android:textColor="?attr/paragraph2"
+        />
+
+
+    <ToggleButton
+        android:id="@+id/themeToggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailchangeinfo"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/edit_text_background"
+        android:backgroundTint="?attr/optionButtonbackground2"
+        android:elevation="3dp"
+        android:fontFamily="@font/baloo_tamma_2_medium"
+        android:padding="20dp"
+        android:paddingVertical="7dp"
+        android:paddingStart="25dp"
+        android:textAlignment="textStart"
+        android:textOff="Light"
+        android:textOn="Dark"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Giggly" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Dark theme colors -->
+        <item name="colorPrimary">@color/darkdarkgrey</item>
+        <item name="colorPrimaryVariant">@color/yellow</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/darkdarkgrey</item>
+
+        <item name="colorSecondaryVariant">@color/darkdarkgrey</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="mainBackground">@color/darkdarkgrey</item>
+        <item name="editTextBackground2">@color/darkdarkgrey</item>
+        <item name="editTextFont2">@color/lightgrey</item>
+        <item name="title2">@color/yellow</item>
+        <item name="subtitle2">@color/white</item>
+        <item name="paragraph2">@color/lightgrey</item>
+        <item name="buttons2">@color/yellow</item>
+        <item name="buttonsText2">@color/black</item>
+        <item name="homepageBackground">@color/darkdarkgrey</item>
+        <item name="yellowbuttons">@color/mediumyellow</item>
+        <item name="textViewtext2">@color/darkdarkgrey</item>
+        <item name="arrows2">@color/white</item>
+        <item name="curvedBackground2">@color/darkGrey</item>
+        <item name="optionButtonbackground2">@color/darkGrey</item>
+        <item name="optionPageBackground2">@color/darkdarkgrey</item>
+        <item name="isDarkTheme">true</item>
+        <item name="startParagraph">@color/mediumdarkGrey</item>
+        <item name="searchbar">@color/darkdarkgrey</item>
+        <item name="searchpageBackground">@color/darkGrey</item>
+        <item name="postItemBackground">@color/darkGrey</item>
+        <item name="postItemCategoryColor">@color/mediumdarkGrey</item>
+        <item name="postitemLoadingImage">@drawable/untitled_design__4_</item>
+        <item name="googlebutton">@color/mediumdarkGrey</item>
+        <item name="dangerbuttons">@color/darkRed</item>
+        <item name="placeholdercolor">@color/mediumdarkdarkGrey</item>
+        <item name="commentalternatingcolors">@color/darkGrey</item>
+        <item name="notificationColors">@color/lightgrey</item>
+
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/darkdarkgrey</item>
+    </style>
+</resources>

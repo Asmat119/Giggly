@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/optionPageBackground2"
+    tools:context=".AboutActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo_tamma_2_medium"
+
+
+        android:background="?attr/optionPageBackground2" />
+
+    <!--    <TextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/settings"-->
+    <!--        android:text="@string/settings"-->
+    <!--        android:textColor="@color/navy"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:textSize="18sp"/>-->
+
+
+    <LinearLayout
+        android:id="@+id/aboutYourAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edit_text_background"
+        android:backgroundTint="?attr/optionButtonbackground2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="17dp"
+        android:elevation="3dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/user"
+            app:tint="?attr/paragraph2" />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About your account"
+            android:textColor="?attr/paragraph2"
+            android:fontFamily="@font/lato"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/privacyPolicy"
+        android:layout_below="@id/aboutYourAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="17dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/edit_text_background"
+        android:backgroundTint="?attr/optionButtonbackground2"
+        android:layout_marginHorizontal="20dp"
+        android:elevation="3dp"
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/privacy_policy"
+            android:layout_marginEnd="20dp"
+            app:tint="?attr/paragraph2" />
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy policy"
+            android:textColor="?attr/paragraph2"
+            android:fontFamily="@font/lato"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/termsofUse"
+        android:layout_below="@id/privacyPolicy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="17dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/edit_text_background"
+        android:backgroundTint="?attr/optionButtonbackground2"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:elevation="3dp"
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/privacy_policy"
+            app:tint="?attr/paragraph2"
+            android:layout_marginEnd="20dp"
+            />
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms of use"
+            android:textColor="?attr/paragraph2"
+            android:fontFamily="@font/lato"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

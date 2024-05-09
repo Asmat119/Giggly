@@ -1,0 +1,67 @@
+<!--<resources xmlns:tools="http://schemas.android.com/tools">-->
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Theme.Giggly" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">#285DFF</item>-->
+<!--        <item name="colorPrimaryVariant">#000d3d</item>-->
+<!--        <item name="colorOnPrimary">#c2bdbf</item>-->
+<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+<!--        <item name="colorSecondary">@color/yellow</item>-->
+<!--        <item name="colorSecondaryVariant">@color/teal_700</item>-->
+<!--        <item name="colorOnSecondary">@color/black</item>-->
+<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
+<!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--    </style>-->
+
+<!--    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">-->
+<!--        <item name="android:windowBackground">@color/yellow</item>-->
+<!--    </style>-->
+<!--</resources>-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Giggly" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Light theme colors -->
+        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <item name="colorSecondary">@color/lightlightgrey</item>
+        <item name="colorSecondaryVariant">@color/yellow</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+
+        <item name="homepageBackground">@color/lightgrey</item>
+        <item name="mainBackground">@color/yellow</item>
+        <item name="editTextBackground2">@color/lightgrey</item>
+        <item name="editTextFont2">@color/black</item>
+        <item name="title2">@color/black</item>
+        <item name="subtitle2">@color/black</item>
+        <item name="paragraph2">@color/black</item>
+        <item name="buttons2">@color/yellow</item>
+        <item name="buttonsText2">@color/black</item>
+        <item name="textViewtext2">@color/black</item>
+        <item name="curvedBackground2">@color/white</item>
+        <item name="arrows2">@color/black</item>
+        <item name="optionButtonbackground2">@color/lightgrey</item>
+        <item name="optionPageBackground2">@color/white</item>
+        <item name="yellowbuttons">@color/yellow</item>
+        <item name="isDarkTheme">false</item>
+        <item name="startParagraph">@color/mediumGrey</item>
+        <item name="searchbar">@color/white</item>
+        <item name="searchpageBackground">@color/white</item>
+        <item name="postItemBackground">@color/white</item>
+        <item name="postItemCategoryColor">@color/mediumGrey</item>
+        <item name="postitemLoadingImage">@drawable/loadingimagelight</item>
+        <item name="googlebutton">@color/lightgrey</item>
+        <item name="dangerbuttons">@color/red</item>
+        <item name="placeholdercolor">@color/mediumGrey</item>
+        <item name="commentalternatingcolors">@color/white</item>
+        <item name="notificationColors">@color/black</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/yellow</item>
+    </style>
+</resources>

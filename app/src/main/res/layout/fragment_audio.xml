@@ -1,0 +1,161 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/optionPageBackground2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.AudioFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/optionPageBackground2">
+
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="?attr/optionPageBackground2"
+            android:id="@+id/toolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:drawableLeft="@drawable/close_icon"
+                    android:drawableTint="?attr/paragraph2"
+                    android:id="@+id/close"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/baloo_tamma_2_medium"
+                    android:layout_toStartOf="@+id/next_page"
+                    android:layout_toEndOf="@+id/close"
+
+                    android:gravity="center"
+                    android:textColor="?attr/paragraph2"
+                    android:text="Record Audio" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:backgroundTint="?attr/paragraph2"
+                    android:elevation="10dp"
+                    android:id="@+id/next_page"
+                    android:fontFamily="@font/raleway_medium"
+                    android:textSize="18sp"
+                    android:layout_alignParentEnd="true"
+                    android:drawableEnd="@drawable/pointing_right_arrow"
+                    android:drawableTint="?attr/paragraph2"
+                    android:drawablePadding="10dp"
+                    android:layout_marginRight="15dp"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"/>
+
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@id/toolbar"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/image_profile"
+                    android:elevation="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="210dp" />
+
+                <!-- Add the Circular Visualizer behind the profile image -->
+                <com.chibde.visualizer.CircleBarVisualizer
+                    android:id="@+id/visualizerCircleBar"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="180dp" />
+            </RelativeLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mic_icon"
+                android:id="@+id/recordAudioButton"
+                android:layout_marginTop="150dp"
+                android:backgroundTint="@color/yellow"
+
+                android:tint="@color/black" />
+
+        </LinearLayout>
+
+        <!-- Bottom AppBarLayout (For Play button and audio visualizer) -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottom"
+            android:background="?attr/optionPageBackground2"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+
+                android:background="@drawable/topbothroundcornersdarkgrey"
+                android:backgroundTint="?attr/optionButtonbackground2">
+
+                <ImageButton
+                    android:id="@+id/playaudiobtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/triangle"
+                    android:backgroundTint="@android:color/transparent"
+                    android:layout_gravity="center_vertical"
+                    app:tint="?attr/paragraph2" />
+
+                <SeekBar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/audioSeekBar"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/uploadaudiobtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/upload_icon"
+                    android:backgroundTint="@color/yellow"
+                    android:visibility="invisible"
+                    android:layout_gravity="center_vertical"
+                    app:tint="@color/black" />
+
+
+            </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+    </RelativeLayout>
+
+
+</FrameLayout>

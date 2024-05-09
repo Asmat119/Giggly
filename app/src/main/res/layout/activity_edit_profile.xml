@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/mainBackground"
+
+    tools:context=".EditProfileActivity">
+
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            app:titleTextColor="@color/white"
+            android:background="?attr/mainBackground">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/close_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/close"
+                    app:tint="?attr/paragraph2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Profile"
+                    android:fontFamily="@font/baloo_tamma_2_medium"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:textSize="18sp"
+                    android:textColor="?attr/paragraph2"
+                    android:layout_toEndOf="@id/close"/>
+
+
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:background="@drawable/profilepicbackgrounddarkgrey"
+
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/no_profile_image"
+            android:layout_gravity="center"
+
+            android:id="@+id/image_profile"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Photo"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:layout_gravity="center"
+            android:id="@+id/change_photo"
+            android:textColor="@color/yellow"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="?attr/curvedBackground2">
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <EditText
+                android:id="@+id/firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="7dp"
+                android:background="@drawable/edit_text_backgrounddarkdarkgrey"
+                android:backgroundTint="?attr/editTextBackground2"
+                android:drawableLeft="@drawable/name_icon"
+                android:drawablePadding="10dp"
+                android:textColor="?attr/paragraph2"
+                android:drawableTint="@color/yellow"
+                android:fontFamily="@font/lato"
+                android:hint="First Name"
+                android:textColorHint="?attr/paragraph2"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="12sp" />
+            <EditText
+                android:id="@+id/secondname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/lato"
+                android:background="@drawable/edit_text_backgrounddarkdarkgrey"
+                android:backgroundTint="?attr/editTextBackground2"
+                android:drawableLeft="@drawable/name_icon"
+                android:drawablePadding="10dp"
+                android:textColor="?attr/paragraph2"
+                android:drawableTint="@color/yellow"
+
+                android:hint="Second Name"
+                android:textColorHint="?attr/paragraph2"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="?attr/paragraph2"
+            android:fontFamily="@font/lato"
+            android:background="@drawable/edit_text_backgrounddarkdarkgrey"
+            android:hint="Username"
+            android:textColorHint="?attr/paragraph2"
+            android:backgroundTint="?attr/editTextBackground2"
+            android:drawableLeft="@drawable/at_icon"
+            android:padding="15dp"
+            android:drawableTint="@color/yellow"
+            android:drawablePadding="10dp"
+            android:inputType="textEmailAddress"
+            android:textSize="12sp"
+            android:imeOptions="actionNext" />
+
+
+        <EditText
+            android:id="@+id/bio"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:textColor="?attr/paragraph2"
+            android:background="@drawable/biotextbackground"
+            android:fontFamily="@font/lato"
+            android:backgroundTint="?attr/editTextBackground2"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="15dp"
+            android:lines="10"
+            android:hint="Bio..."
+            android:textColorHint="?attr/paragraph2"
+            android:gravity="top|left"
+            android:layout_marginTop="15dp"
+            android:inputType="textMultiLine"
+            android:textSize="12sp"
+            android:imeOptions="actionNext" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            app:strokeColor="@color/white"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:backgroundTint="@color/yellow"
+            android:padding="15dp"
+            android:textStyle="bold"
+            android:text="Save"
+            app:cornerRadius="7dp"
+
+            android:textSize="15sp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+</LinearLayout>

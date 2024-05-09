@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "28.0.1"
+    buildFeatures {
+        buildConfig = true
+    }
+    defaultConfig {
+        applicationId "com.wit.giggly"
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 32
+        versionName "4.2.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    namespace 'com.wit.giggly'
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures{
+        viewBinding true
+    }
+
+
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'pub.hanks:smallbang:1.2.2'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
+    implementation 'jp.wasabeef:picasso-transformations:2.2.1'
+    implementation 'com.google.android.material:material:1.6.0'
+    // implementation 'com.github.GrenderG:Toasty:1.5.2'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'org.jsoup:jsoup:1.14.3'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.google.android.gms:play-services-ads:23.0.0'
+
+    implementation("app.futured.donut:donut:2.2.3")
+
+
+
+
+
+    implementation 'com.chibde:audiovisualizer:2.2.0'
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.0'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.0'
+
+    implementation "com.hendraanggrian.appcompat:socialview:0.2"
+    implementation "com.hendraanggrian.appcompat:socialview-commons:0.2"
+
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation 'com.google.android.gms:play-services-ads:22.6.0'
+
+    implementation 'com.google.android.play:core:1.10.0'
+
+    implementation "com.github.marlonlom:timeago:4.0.0"
+
+    implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
+    implementation 'com.google.firebase:firebase-database:20.3.0'
+    implementation 'com.google.firebase:firebase-storage:20.3.0'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation 'com.google.firebase:firebase-auth:22.3.1'
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+    implementation project(':nativetemplates')
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "892837023766",
+    "firebase_url": "https://giggly-ef5fb-default-rtdb.firebaseio.com",
+    "project_id": "giggly-ef5fb",
+    "storage_bucket": "giggly-ef5fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892837023766:android:727c88b4974c873898a537",
+        "android_client_info": {
+          "package_name": "com.wit.giggly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892837023766-fqgingae02ohohuh8eeltual8lb9ss9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgDE-QSkXTW9BAjaJTNCiac900rEH5PJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892837023766-fqgingae02ohohuh8eeltual8lb9ss9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

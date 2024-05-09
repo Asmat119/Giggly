@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/baloo_tamma_2_medium</item>
+        <item>@font/comfortaa</item>
+        <item>@font/comfortaa_light</item>
+        <item>@font/lato</item>
+        <item>@font/luckiest_guy</item>
+        <item>@font/oswald</item>
+        <item>@font/raleway_medium</item>
+    </array>
+</resources>

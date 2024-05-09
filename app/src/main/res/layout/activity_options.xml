@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/optionPageBackground2"
+    tools:context=".OptionsActivity"
+    android:scrollbars="none"
+    android:paddingBottom="10dp"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_medium"
+
+        android:layout_weight="1"
+        android:background="?attr/optionPageBackground2" />
+
+    <!--    <TextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/settings"-->
+    <!--        android:text="@string/settings"-->
+    <!--        android:textColor="@color/navy"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:textSize="18sp"/>-->
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="9"
+
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingStart="5dp"
+            android:textColor="?attr/paragraph2"
+            android:paddingVertical="3dp"
+            android:layout_marginHorizontal="20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="?attr/optionButtonbackground2"
+            android:padding="17dp"
+            android:elevation="3dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="15dp"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/padlock"
+                    app:tint="?attr/paragraph2"
+                    android:layout_marginEnd="20dp"
+                    />
+                <TextView
+                    android:id="@+id/accountDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Security"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/user"
+                    app:tint="?attr/paragraph2"
+                    android:layout_marginEnd="20dp"
+                    />
+                <TextView
+                    android:id="@+id/editProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Edit profile"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+               android:layout_marginTop="15dp"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/save_instagram"
+                    app:tint="?attr/paragraph2"
+                    android:layout_marginEnd="20dp"
+                    />
+                <TextView
+                    android:id="@+id/mysaves"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Saved"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Support and About"
+            android:textStyle="bold"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textSize="16sp"
+            android:textColor="?attr/paragraph2"
+            android:paddingStart="5dp"
+            android:paddingVertical="3dp"
+            android:layout_marginHorizontal="20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="17dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/edit_text_background"
+                android:elevation="3dp"
+                android:backgroundTint="?attr/optionButtonbackground2"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp"
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/information"
+                    android:layout_marginEnd="20dp"
+                    app:tint="?attr/paragraph2"/>
+                <TextView
+                    android:id="@+id/about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:text="About"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Actions"
+            android:textStyle="bold"
+            android:paddingStart="5dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textSize="16sp"
+            android:textColor="?attr/paragraph2"
+            android:paddingVertical="3dp"
+            android:layout_marginHorizontal="20dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="?attr/optionButtonbackground2"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="3dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="17dp"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/color_palette"
+                    android:layout_marginEnd="20dp"
+                    app:tint="?attr/paragraph2" />
+                <TextView
+                    android:id="@+id/toThemePagebtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Theme"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="17dp"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/attention"
+                    android:layout_marginEnd="20dp"
+                    app:tint="?attr/paragraph2" />
+                <TextView
+                    android:id="@+id/permissions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Permissions"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="17dp"
+                android:gravity="center_vertical"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/logout"
+                    android:layout_marginEnd="20dp"
+                    app:tint="?attr/paragraph2" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:id="@+id/logout"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dangerous"
+            android:textStyle="bold"
+            android:paddingStart="5dp"
+            android:textColor="?attr/paragraph2"
+            android:paddingVertical="3dp"
+            android:fontFamily="@font/baloo_tamma_2_medium"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="20dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/edit_text_background"
+            android:backgroundTint="?attr/dangerbuttons"
+            android:layout_marginHorizontal="20dp"
+            android:elevation="3dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="17dp"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/cancel"
+                    android:layout_marginEnd="20dp"
+                    app:tint="?attr/paragraph2" />
+                <TextView
+                    android:id="@+id/darkmode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dont touch me"
+                    android:fontFamily="@font/lato"
+                    android:textSize="14sp"
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+android:visibility="gone"
+                android:padding="17dp"
+
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/attention"
+                    android:layout_marginEnd="20dp"
+                    app:tint="?attr/paragraph2" />
+                <TextView
+                    android:id="@+id/deleteProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Delete profile"
+
+                    android:textColor="?attr/paragraph2"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gigglyversion"
+            android:text="Giggly Version: loading..."
+            android:layout_margin="20dp"
+            android:fontFamily="@font/lato"
+            android:textSize="14sp"
+            android:textAlignment="center"/>
+
+
+
+
+
+        <!--    <Button-->
+        <!--        android:id="@+id/deleteProfile"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_alignParentBottom="true"-->
+
+        <!--        android:layout_marginBottom="15dp"-->
+        <!--        android:backgroundTint="@color/red"-->
+        <!--        android:visibility="visible"-->
+        <!--        android:enabled="false"-->
+        <!--        app:cornerRadius="7dp"-->
+        <!--        android:fontFamily="@font/raleway_medium"-->
+        <!--        android:text="Delete Profile"-->
+        <!--        android:textColor="@color/white" />-->
+
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>
