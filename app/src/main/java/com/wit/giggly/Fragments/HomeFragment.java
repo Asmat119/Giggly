@@ -80,15 +80,10 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 //        view =inflater.inflate(R.layout.fragment_home, container, false);
         view = binding.getRoot();
-
-
-
         notificationsBtn = view.findViewById(R.id.notificationBtn);
-
         swiperefresh = view.findViewById(R.id.swiperefresh);
         swiperefresh.setProgressBackgroundColorSchemeResource(R.color.yellow);
         swiperefresh.setColorSchemeColors(Color.BLACK);
-
         recyclerViewPosts = view.findViewById(R.id.recycler_view_posts);
         recyclerViewPosts.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -99,7 +94,6 @@ public class HomeFragment extends Fragment {
 //        mSnaphelp.attachToRecyclerView(recyclerViewPosts);
         postList = new ArrayList<>();
         postAdapter = new PostAdapter(getContext(), postList);
-
          admobNativeAdAdapter = AdmobNativeAdAdapter.Builder.with(
                         requireActivity().getString(R.string.native_ad_id),
                         postAdapter,
@@ -143,9 +137,6 @@ public class HomeFragment extends Fragment {
                 activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-
-
-
         swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

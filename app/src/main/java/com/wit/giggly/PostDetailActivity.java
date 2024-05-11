@@ -141,6 +141,7 @@ public class PostDetailActivity extends AppCompatActivity {
     public ConstraintLayout postclickRoot;
     public Button deletePost;
     public Button deletepostBtn;
+    private  int lastPosition;
     public Button whoisbtn;
     public ImageView closebtn;
     public boolean isMuted = false;
@@ -154,18 +155,18 @@ public class PostDetailActivity extends AppCompatActivity {
     private int postCount = 0;
     AdmobNativeAdAdapter admobNativeAdAdapter;
     private RecyclerView recyclerViewPosts;
+    @Override
+    public void onBackPressed() {
+        postAdapter.stopAudio();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_detail);
-
         fUser = FirebaseAuth.getInstance().getCurrentUser();
-
-
         postId = getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("postid", "none");
         postAuthorId = getIntent().getStringExtra("postAuthorId");
-
         recyclerViewPosts = findViewById(R.id.postdetailrecycler);
         recyclerViewPosts.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PostDetailActivity.this);
@@ -173,12 +174,10 @@ public class PostDetailActivity extends AppCompatActivity {
 //        linearLayoutManager.setStackFromEnd(true);
 //        linearLayoutManager.setReverseLayout(true);
         recyclerViewPosts.setLayoutManager(linearLayoutManager);
-
         SnapHelper mSnaphelp = new PagerSnapHelper();
         mSnaphelp.attachToRecyclerView(recyclerViewPosts);
         postList = new ArrayList<>();
         postAdapter = new PostAdapter(PostDetailActivity.this, postList);
-
         admobNativeAdAdapter = AdmobNativeAdAdapter.Builder.with(
                         PostDetailActivity.this.getString(R.string.native_ad_id),
                         postAdapter,
@@ -187,9 +186,24 @@ public class PostDetailActivity extends AppCompatActivity {
                 ).adItemIterval(5)
                 .build();
         admobNativeAdAdapter.setNativeAdThemeModel();
+        recyclerViewPosts.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                lastPosition = linearLayoutManager.findLastVisibleItemPosition();
+//                postAdapter.startAudio(lastPosition);
+//                Toast.makeText(PostDetailActivity.this, "pos"+lastPosition, Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
 //        recyclerViewPosts.setAdapter(postAdapter);
         recyclerViewPosts.setAdapter(admobNativeAdAdapter);
-readPosts(postId);
+//        postAdapter.startAudio(0);
+        readPosts(postId);
+
 
 //        followbtn = findViewById(R.id.followbtn);
 //        imageProfile = findViewById(R.id.image_profile);
@@ -1187,7 +1201,6 @@ readPosts(postId);
         });
     }
 
-
     //https://console.cloud.google.com/apis/api/googlecloudmessaging.googleapis.com/quotas?project=giggly-ef5fb
     //https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceIdService
     //https://www.youtube.com/watch?v=6_t87WW6_Gc
@@ -1225,9 +1238,7 @@ readPosts(postId);
                             e.printStackTrace();
                             return; // Exit method if JSON creation fails
                         }
-
                         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), json);
-
                         Request request = new Request.Builder()
                                 .url(FCM_API)
                                 .post(requestBody)
@@ -1242,6 +1253,7 @@ readPosts(postId);
                                 // Log failure to send notification
                                 Log.e("Notification", "Failed to send notification: " + e.getMessage());
                             }
+
 
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {

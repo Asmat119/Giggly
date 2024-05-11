@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
 
         android:background="@color/darkGrey">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -138,10 +137,7 @@
             <ImageView
                 android:id="@+id/postimage"
                 android:layout_width="0dp"
-
-
                 android:layout_height="wrap_content"
-
 
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
@@ -390,7 +386,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-
                     android:layout_marginEnd="20dp"
                     android:text="category"
                     android:textSize="12sp"
@@ -400,11 +395,6 @@
                     android:shadowDy="0"
                     android:shadowRadius="14"
                     android:textColor="@color/white" />
-
-
-
-
-
 
                 <com.hendraanggrian.appcompat.widget.SocialTextView
                     android:id="@+id/description"

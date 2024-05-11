@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/darkdarkgrey"
-app:title="Explore"
+        app:title="Explore"
         app:titleTextColor="@color/white"
         android:fontFamily="@font/raleway_medium"
         app:layout_constraintTop_toTopOf="parent" />

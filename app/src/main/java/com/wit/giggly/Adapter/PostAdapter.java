@@ -165,6 +165,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
       FragmentActivity activity = (FragmentActivity) mContext;
+//      mediaPlayer = new MediaPlayer();
       Fragment fragment = activity.getSupportFragmentManager().findFragmentById(R.id.fragment_container);
       LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
@@ -198,6 +199,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
    @Override
    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, int position) {
       final Post post = mPosts.get(position);
+
       if (getItemViewType(position) == VIEW_TYPE_AD) {
          AdViewHolder holder = (AdViewHolder) viewHolder;
          holder.binding.adAdvertiser.setText(post.getNativeAd().getAdvertiser());
@@ -235,24 +237,12 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                holder.timestamp.setText(timeAgo);
 
             } else if (mContext instanceof PostDetailActivity) {
+
                if(post.getPublisher().equals(firebaseUser.getUid())){
                   holder.follwbtn.setVisibility(View.GONE);
+
                }
-//               if(postAuthorId != null && firebaseUser != null) {
-//                  Log.d("PostDetailActivity", "postAuthorId: " + postAuthorId);
-//                  Log.d("PostDetailActivity", "firebaseUserId: " + firebaseUser.getUid());
-//                  if(postAuthorId.equals(firebaseUser.getUid())) {
-//                     deletepostBtn.setVisibility(View.VISIBLE);
-//                     whoisbtn.setVisibility(View.GONE);
-//                     reportBtn.setVisibility(View.GONE);
-//                  } else {
-//                     deletepostBtn.setVisibility(View.GONE);
-//                     whoisbtn.setVisibility(View.VISIBLE);
-//                     reportBtn.setVisibility(View.VISIBLE);
-//                  }
-//               } else {
-//                  Log.e("PostDetailActivity", "postAuthorId or firebaseUser is null");
-//               }
+
 
                holder.follwbtn.setOnClickListener(new View.OnClickListener() {
                   @Override
@@ -282,7 +272,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //            holder.imageProfile.setVisibility(View.GONE);
 //            holder.username.setVisibility(View.GONE);
 //            holder.author.setVisibility(View.GONE);
-               //holder.timestampdetail.setText(timeAgo);
+//               holder.timestampdetail.setText(timeAgo);
 //            holder.posttitle.setVisibility(View.VISIBLE);
 //            holder.posttitle.setText(post.getTitle());
             }
@@ -296,6 +286,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                holder.more.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View view) {
+                     postAuthorId = post.getPublisher();
                      showOptionsMenu(post.getPostId());
                   }
                });
@@ -430,6 +421,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
                }
             });
+
 
 
             holder.boo.setOnClickListener(new View.OnClickListener() {
@@ -567,23 +559,17 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                @Override
                public void onClick(View v) {
                   v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-
                   // Check if the user is null
                   if (holder.username.equals("@DeletedAccount")) {
                      // Handle the case where the user is null
                      Toast.makeText(mContext, "Account deleted", Toast.LENGTH_SHORT).show();
                   } else {
-
-
                      mContext.getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
                              .edit().putString("profileId", post.getPublisher()).apply();
-
                      mContext.startActivity(new Intent(mContext, ProfileActivity.class));
                   }
                }
             });
-
-
             holder.author.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
@@ -620,15 +606,14 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                      Log.e("timestamp", String.valueOf(post.getTimestamp()));
                      mContext.startActivity(intent);
                   } else {
-
                   }
-
                }
             });
-
             if (!(fragment instanceof HomeFragment)) {
-               startAudio(post.getAudio());
-               initializeMediaPlayer(getSelectedPostAudioUrl());
+//               Toast.makeText(activity, "sound star"+position, Toast.LENGTH_SHORT).show();
+//               stopAudio();
+                 startAudio(post.getAudio());
+//               initializeMediaPlayer(getSelectedPostAudioUrl());
                holder.description.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
@@ -646,37 +631,20 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                      }
                   }
                });
-
                holder.imageProfile.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
-
-
                         v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-
                         if (holder.username.equals("@DeletedAccount") && holder.author.equals("Delete user")) {
-
                            Toast.makeText(mContext, "Account deleted", Toast.LENGTH_SHORT).show();
                         } else {
-
-
                            mContext.getSharedPreferences("PROFILE", Context.MODE_PRIVATE)
                                    .edit().putString("profileId", post.getPublisher()).apply();
-
                            mContext.startActivity(new Intent(mContext, ProfileActivity.class));
                         }
-
-
-
                   }
                });
-
-
-
-
             }
-
-
 
             holder.postImage.setOnClickListener(new View.OnClickListener() {
                @Override
@@ -697,7 +665,9 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                     if (mediaPlayer != null) {
 
                                         if (!isMuted) {
-                                            mediaPlayer.setVolume(0, 0);
+
+                                            mediaPlayer.setVolume(0.0f, 0.0f);
+//                                            mediaPlayer.setVolume(0, 0);
                                             showMuteSymbol(postid,holder.unmuteSymbolImageView,holder.muteSymbolImageView);
                                             isMuted = true;
                                             Log.e("Post mute", "post is muted");
@@ -1674,11 +1644,19 @@ follwbtn = itemView.findViewById(R.id.followbtn);
    }
 
 
-   private void startAudio(String audioUrl) {
+   public void startAudio(String urlAudio) {
       mediaPlayer = new MediaPlayer();
+
       try {
-         mediaPlayer.setDataSource(audioUrl);
-         Log.e("audio file", audioUrl);
+         if (isPlaying){
+
+            mediaPlayer.setLooping(false);
+            mediaPlayer.stop();
+            mediaPlayer.pause();// Start playing audio immediately
+            isPlaying = true;
+         }
+         mediaPlayer.setDataSource(urlAudio);
+//         Log.e("audio file", audioUrl);
          mediaPlayer.prepare();
          mediaPlayer.setLooping(true);
          mediaPlayer.start(); // Start playing audio immediately
@@ -1689,7 +1667,7 @@ follwbtn = itemView.findViewById(R.id.followbtn);
    }
 
 
-   private void stopAudio() {
+   public void stopAudio() {
       if (isPlaying) {
          mediaPlayer.pause();
          isPlaying = false;
@@ -1724,15 +1702,6 @@ follwbtn = itemView.findViewById(R.id.followbtn);
       } else {
          Log.e("PostDetailActivity", "postAuthorId or firebaseUser is null");
       }
-
-
-
-
-
-
-
-
-
 
       final AlertDialog dialog = builder.create();
       Window window = dialog.getWindow();
@@ -1926,6 +1895,7 @@ follwbtn = itemView.findViewById(R.id.followbtn);
             Log.e("audio file", audioUrl);
             mediaPlayer.prepare();
             mediaPlayer.setLooping(true);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
