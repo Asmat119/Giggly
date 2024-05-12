@@ -74,6 +74,9 @@ import okhttp3.Response;
 public class PostDetailActivity extends AppCompatActivity {
 
     public static final String TAG = "hazro";
+    private String currentAudioUrl;
+
+    public static final int ADS_ITEM_INTERVAL = 5;
     private String postId;
     private FirebaseUser fUser;
     public ImageView imageProfile;
@@ -166,52 +169,49 @@ public class PostDetailActivity extends AppCompatActivity {
         recyclerViewPosts.setLayoutManager(linearLayoutManager);
         SnapHelper mSnaphelp = new PagerSnapHelper();
         postList = new ArrayList<>();
-        recyclerViewPosts.addOnScrollListener(new SnapOnScrollListener(mSnaphelp, SnapOnScrollListener.Behavior.NOTIFY_ON_SCROLL, new OnSnapPositionChangeListener() {
-            @Override
-            public void onSnapPositionChange(int position) {
-                Post post = postList.get(position);
-                Log.d(TAG, "onSnapPositionChange: " + position);
-                Log.d(TAG, "onSnapPositionChange: " + post.getTitle());
-                Log.d(TAG, "onSnapPositionChange: " + post.getAudio());
+        recyclerViewPosts.addOnScrollListener(new SnapOnScrollListener(mSnaphelp, SnapOnScrollListener.Behavior.NOTIFY_ON_SCROLL, position -> {
+            int adjustedPosition = position - (position / ADS_ITEM_INTERVAL);
+//                Post post = postList.get(position);
+            Post post = postList.get(adjustedPosition);
+            boolean isAdPosition = (position % 5 == 0) && (position != 0);
 
-                try {
-                    // Check if MediaPlayer is already playing and stop it
-                    if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                        mediaPlayer.stop();
-                        mediaPlayer.reset();
-                    }
+            Log.d(TAG, "onSnapPositionChange: position " + position);
+            Log.d(TAG, "onSnapPositionChange: adjustedPosition " + adjustedPosition);
+            Log.d(TAG, "onSnapPositionChange: isAdPosition " + isAdPosition);
+            Log.d(TAG, "onSnapPositionChange: post.getTitle() " + post.getTitle());
+            Log.d(TAG, "onSnapPositionChange: post.getAudio() " + post.getAudio());
 
-                    // Initialize MediaPlayer
-                    mediaPlayer = new MediaPlayer();
-
-                    // Set data source and prepare asynchronously
-                    mediaPlayer.setDataSource(post.getAudio());
-                    mediaPlayer.prepare();
-                    mediaPlayer.setLooping(true);
-                    mediaPlayer.start();
-
-                    // Set listener for when preparation is complete
-//                    mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//                        @Override
-//                        public void onPrepared(MediaPlayer mp) {
-//                            Log.d(TAG, "onPrepared: called");
-//                            // Start playing the audio
-//                            mp.setLooping(true);
-//                            mp.start();
-//                        }
-//                    });
-
-                    // Set error listener
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.d("hazro", "onSnapPositionChange: ");
-//                    throw new RuntimeException(e);
-                }
-
-
+            if (mediaPlayer != null && (mediaPlayer.isPlaying() || isAdPosition)) {
+                releaseMediaPlayer();
             }
+
+            if (!isAdPosition) {
+                // Initialize and prepare the MediaPlayer asynchronously
+                prepareMediaPlayer(post.getAudio());
+            }
+            // Check if the adjusted position corresponds to an ad
+//                try {
+//                    // Check if MediaPlayer is already playing and stop it
+//                    if (mediaPlayer != null && mediaPlayer.isPlaying() || isAdPosition) {
+//                        mediaPlayer.stop();
+//                        mediaPlayer.reset();
+//                    }
+//
+//                    // Initialize MediaPlayer
+//                    mediaPlayer = new MediaPlayer();
+//
+//                    // Set data source and prepare asynchronously
+//                    mediaPlayer.setDataSource(post.getAudio());
+//                    mediaPlayer.prepare();
+//                    mediaPlayer.setLooping(true);
+//                    mediaPlayer.start();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    Log.d("hazro", "onSnapPositionChange: ");
+////                    throw new RuntimeException(e);
+//                }
+
+
         }));
         mediaPlayer.setOnErrorListener((mp, what, extra) -> {
             // Handle error
@@ -225,7 +225,7 @@ public class PostDetailActivity extends AppCompatActivity {
                         postAdapter,
                         "small",
                         PostDetailActivity.this
-                ).adItemIterval(5)
+                ).adItemIterval(ADS_ITEM_INTERVAL)
                 .build();
         admobNativeAdAdapter.setNativeAdThemeModel();
         recyclerViewPosts.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -685,6 +685,40 @@ public class PostDetailActivity extends AppCompatActivity {
 //
 //                    }
 //                });
+    }
+
+    // Method to initialize and prepare the MediaPlayer asynchronously
+    private void prepareMediaPlayer(final String audioUrl) {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setLooping(true);
+        currentAudioUrl = audioUrl;
+
+        try {
+            mediaPlayer.setDataSource(audioUrl);
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    // Start playback only if the prepared audio file URL matches the current audio URL
+                    if (currentAudioUrl.equals(audioUrl)) {
+                        mp.start();
+                    }
+                }
+            });
+            mediaPlayer.prepareAsync();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Method to release resources associated with the MediaPlayer
+    private void releaseMediaPlayer() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
 
