@@ -133,6 +133,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
       this.mContext = mContext;
       this.mPosts = mPosts;
       firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+      mediaPlayer = new MediaPlayer();
       // Initialize AdLoader
       loadAds(mContext, mPosts);
    }
@@ -198,8 +199,8 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
    @Override
    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, int position) {
+      Log.d("hazro", "onBindViewHolder: called");
       final Post post = mPosts.get(position);
-
       if (getItemViewType(position) == VIEW_TYPE_AD) {
          AdViewHolder holder = (AdViewHolder) viewHolder;
          holder.binding.adAdvertiser.setText(post.getNativeAd().getAdvertiser());
@@ -612,7 +613,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             if (!(fragment instanceof HomeFragment)) {
 //               Toast.makeText(activity, "sound star"+position, Toast.LENGTH_SHORT).show();
 //               stopAudio();
-                 startAudio(post.getAudio());
+//                 startAudio(post.getAudio());
 //               initializeMediaPlayer(getSelectedPostAudioUrl());
                holder.description.setOnClickListener(new View.OnClickListener() {
                   @Override
@@ -1645,11 +1646,11 @@ follwbtn = itemView.findViewById(R.id.followbtn);
 
 
    public void startAudio(String urlAudio) {
-      mediaPlayer = new MediaPlayer();
+      Log.d("hazro", "startAudio called: "  + isPlaying);
+//      mediaPlayer = new MediaPlayer();
 
       try {
          if (isPlaying){
-
             mediaPlayer.setLooping(false);
             mediaPlayer.stop();
             mediaPlayer.pause();// Start playing audio immediately

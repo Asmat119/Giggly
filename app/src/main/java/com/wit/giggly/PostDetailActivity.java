@@ -1,16 +1,6 @@
 package com.wit.giggly;
 
-import static com.wit.giggly.StartActivity.CHANNEL_ID;
-
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,24 +10,16 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,21 +27,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-
-import com.github.marlonlom.utilities.timeago.TimeAgo;
-import com.github.marlonlom.utilities.timeago.TimeAgoMessages;
 import com.google.android.ads.nativetemplates.rvadapter.AdmobNativeAdAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -76,13 +51,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.hendraanggrian.appcompat.widget.SocialTextView;
-import com.squareup.picasso.Picasso;
 import com.wit.giggly.Adapter.PostAdapter;
-import com.wit.giggly.Fragments.HomeFragment;
-import com.wit.giggly.Fragments.ProfileFragment;
 import com.wit.giggly.Model.MyCustomNotification;
 import com.wit.giggly.Model.Post;
-import com.wit.giggly.Model.User;
+import com.wit.giggly.databinding.ActivityPostDetailBinding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -91,8 +63,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.MediaType;
@@ -103,6 +73,7 @@ import okhttp3.Response;
 
 public class PostDetailActivity extends AppCompatActivity {
 
+    public static final String TAG = "hazro";
     private String postId;
     private FirebaseUser fUser;
     public ImageView imageProfile;
@@ -125,7 +96,7 @@ public class PostDetailActivity extends AppCompatActivity {
     public TextView atTexttextview;
     public TextView posttitletextview;
     private List<Post> postList;
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayerOld;
     private boolean isPlaying = false;
 
     //public RelativeLayout newItemCard;
@@ -154,29 +125,100 @@ public class PostDetailActivity extends AppCompatActivity {
     public  String postAuthorId;
     private int postCount = 0;
     AdmobNativeAdAdapter admobNativeAdAdapter;
+
+    ActivityPostDetailBinding binding;
     private RecyclerView recyclerViewPosts;
+
+    MediaPlayer mediaPlayer;
     @Override
     public void onBackPressed() {
         postAdapter.stopAudio();
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_detail);
+        binding = ActivityPostDetailBinding.inflate(getLayoutInflater());
+//        setContentView(R.layout.activity_post_detail);
+        setContentView(binding.getRoot());
+
+        mediaPlayer = new MediaPlayer();
+
+//        mediaPlayer = new MediaPlayer();
+//        setContentView(binding.getRoot());
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         postId = getSharedPreferences("PREFS", Context.MODE_PRIVATE).getString("postid", "none");
         postAuthorId = getIntent().getStringExtra("postAuthorId");
+//        recyclerViewPosts = findViewById(R.id.postdetailrecycler);
         recyclerViewPosts = findViewById(R.id.postdetailrecycler);
+//        recyclerViewPosts = binding.;
+
         recyclerViewPosts.setHasFixedSize(true);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PostDetailActivity.this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
 //        linearLayoutManager.setStackFromEnd(true);
-//        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setReverseLayout(true);
         recyclerViewPosts.setLayoutManager(linearLayoutManager);
         SnapHelper mSnaphelp = new PagerSnapHelper();
-        mSnaphelp.attachToRecyclerView(recyclerViewPosts);
         postList = new ArrayList<>();
+        recyclerViewPosts.addOnScrollListener(new SnapOnScrollListener(mSnaphelp, SnapOnScrollListener.Behavior.NOTIFY_ON_SCROLL, new OnSnapPositionChangeListener() {
+            @Override
+            public void onSnapPositionChange(int position) {
+                Post post = postList.get(position);
+                Log.d(TAG, "onSnapPositionChange: " + position);
+                Log.d(TAG, "onSnapPositionChange: " + post.getTitle());
+                Log.d(TAG, "onSnapPositionChange: " + post.getAudio());
+
+                try {
+                    // Check if MediaPlayer is already playing and stop it
+                    if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                    }
+
+                    // Initialize MediaPlayer
+                    mediaPlayer = new MediaPlayer();
+
+                    // Set data source and prepare asynchronously
+                    mediaPlayer.setDataSource(post.getAudio());
+                    mediaPlayer.prepare();
+                    mediaPlayer.setLooping(true);
+                    mediaPlayer.start();
+
+                    // Set listener for when preparation is complete
+//                    mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+//                        @Override
+//                        public void onPrepared(MediaPlayer mp) {
+//                            Log.d(TAG, "onPrepared: called");
+//                            // Start playing the audio
+//                            mp.setLooping(true);
+//                            mp.start();
+//                        }
+//                    });
+
+                    // Set error listener
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.d("hazro", "onSnapPositionChange: ");
+//                    throw new RuntimeException(e);
+                }
+
+
+            }
+        }));
+        mediaPlayer.setOnErrorListener((mp, what, extra) -> {
+            // Handle error
+            Log.e(TAG, "MediaPlayer error: " + what + ", " + extra);
+            return false; // Return true if the error is handled
+        });
+        mSnaphelp.attachToRecyclerView(recyclerViewPosts);
         postAdapter = new PostAdapter(PostDetailActivity.this, postList);
         admobNativeAdAdapter = AdmobNativeAdAdapter.Builder.with(
                         PostDetailActivity.this.getString(R.string.native_ad_id),
@@ -1050,13 +1092,13 @@ public class PostDetailActivity extends AppCompatActivity {
     }
 
     private void startAudio(String audioUrl) {
-        mediaPlayer = new MediaPlayer();
+//        mediaPlayer = new MediaPlayer();
         try {
-            mediaPlayer.setDataSource(audioUrl);
+            mediaPlayerOld.setDataSource(audioUrl);
             Log.e("audio file", audioUrl);
-            mediaPlayer.prepare();
-            mediaPlayer.setLooping(true);
-            mediaPlayer.start(); // Start playing audio immediately
+            mediaPlayerOld.prepare();
+            mediaPlayerOld.setLooping(true);
+            mediaPlayerOld.start(); // Start playing audio immediately
             isPlaying = true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -1066,7 +1108,7 @@ public class PostDetailActivity extends AppCompatActivity {
 
     private void stopAudio() {
         if (isPlaying) {
-            mediaPlayer.pause();
+            mediaPlayerOld.pause();
             isPlaying = false;
         }
     }
@@ -1075,9 +1117,9 @@ public class PostDetailActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         // Release MediaPlayer resources
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
+        if (mediaPlayerOld != null) {
+            mediaPlayerOld.release();
+            mediaPlayerOld = null;
         }
     }
 
