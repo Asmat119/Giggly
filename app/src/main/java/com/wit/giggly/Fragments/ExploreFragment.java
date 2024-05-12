@@ -43,7 +43,7 @@ import java.util.Comparator;
 import java.util.List;
 
 
-public class ExploreFragment extends Fragment {
+public class ExploreFragment extends Fragment implements PostAdapter.OnClickPostImage {
 
     private RecyclerView recyclerViewPosts;
     private TextView exploretext;
@@ -88,7 +88,7 @@ public class ExploreFragment extends Fragment {
         linearLayoutManager.setReverseLayout(true);
         recyclerViewPosts.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(getContext(), postList);
+        postAdapter = new PostAdapter(getContext(), postList,this);
         recyclerViewPosts.setAdapter(postAdapter);
 
         swiperefresh = view.findViewById(R.id.swiperefresh);
@@ -362,6 +362,11 @@ categoryButton.setTextColor(getResources().getColor(R.color.black));
                 break; // Stop searching once the post is found
             }
         }
+    }
+
+    @Override
+    public void onClickPost(boolean isMuted) {
+
     }
 
 

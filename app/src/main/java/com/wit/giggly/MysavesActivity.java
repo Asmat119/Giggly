@@ -39,7 +39,7 @@ import com.wit.giggly.databinding.FragmentHomeBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MysavesActivity extends AppCompatActivity {
+public class MysavesActivity extends AppCompatActivity implements PostAdapter.OnClickPostImage {
 
     private RecyclerView recyclerViewPosts;
     private SwipeRefreshLayout swiperefresh;
@@ -79,7 +79,7 @@ public class MysavesActivity extends AppCompatActivity {
 //        SnapHelper mSnaphelp = new PagerSnapHelper();
 //        mSnaphelp.attachToRecyclerView(recyclerViewPosts);
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(MysavesActivity.this, postList);
+        postAdapter = new PostAdapter(MysavesActivity.this, postList,this);
         recyclerViewPosts.setAdapter(postAdapter);
         fUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -215,4 +215,8 @@ public class MysavesActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onClickPost(boolean isMuted) {
+
+    }
 }

@@ -49,7 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements PostAdapter.OnClickPostImage {
 
     private RecyclerView recyclerViewPosts;
     private SwipeRefreshLayout swiperefresh;
@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment {
 //        SnapHelper mSnaphelp = new PagerSnapHelper();
 //        mSnaphelp.attachToRecyclerView(recyclerViewPosts);
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(getContext(), postList);
+        postAdapter = new PostAdapter(getContext(), postList,this);
          admobNativeAdAdapter = AdmobNativeAdAdapter.Builder.with(
                         requireActivity().getString(R.string.native_ad_id),
                         postAdapter,
@@ -250,9 +250,8 @@ public class HomeFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClickPost(boolean isMuted) {
 
-
-
-
-
+    }
 }

@@ -47,6 +47,12 @@ dependencies {
 
     implementation("app.futured.donut:donut:2.2.3")
 
+    debugImplementation("androidx.fragment:fragment-testing:1.4.1")
+    def lifecycle_version = "2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+
 
 
 

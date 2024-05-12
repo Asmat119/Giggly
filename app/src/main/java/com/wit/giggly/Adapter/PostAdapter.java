@@ -119,6 +119,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
    private static final String SERVER_KEY = "AAAAz-E70BY:APA91bG4JmyzoErCHnztd7d9Gg6pqQ2lAfn0xaX2pxX_UnbRGFjNE0LOwJyKhbuvzCu6crwXYv1zjBdL_XhdARiPdxbE5XC2sLOZ1qMIsDy69WOW1m0UDqt3h3QfC91q4IiYck2DBZpP";
 
    private List<Object> items;
+   OnClickPostImage onClickPostImage;
    public boolean isMuted = false;
 
    private FirebaseUser firebaseUser;
@@ -126,14 +127,20 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
    public String postAuthorId;
 
+public interface OnClickPostImage{
+   void onClickPost(boolean isMuted);
+
+}
 
 
-
-   public PostAdapter(Context mContext, List<Post> mPosts) {
+   public PostAdapter(Context mContext, List<Post> mPosts,OnClickPostImage onClickPostImage) {
       this.mContext = mContext;
       this.mPosts = mPosts;
+      this.onClickPostImage = onClickPostImage;
       firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
       mediaPlayer = new MediaPlayer();
+
+
       // Initialize AdLoader
       loadAds(mContext, mPosts);
    }
@@ -665,17 +672,22 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                      Log.e("Post mute", "imageview tapped");
                                     if (mediaPlayer != null) {
 
+//                                       isMuted = !isMuted;
+//                                       onClickPostImage.onClickPost(isMuted);
+
                                         if (!isMuted) {
 
-                                            mediaPlayer.setVolume(0.0f, 0.0f);
+//                                            mediaPlayer.setVolume(0.0f, 0.0f);
 //                                            mediaPlayer.setVolume(0, 0);
                                             showMuteSymbol(postid,holder.unmuteSymbolImageView,holder.muteSymbolImageView);
                                             isMuted = true;
+                                           onClickPostImage.onClickPost(isMuted);
                                             Log.e("Post mute", "post is muted");
                                         } else {
-                                            mediaPlayer.setVolume(1, 1);
+//                                            mediaPlayer.setVolume(1, 1);
                                             showUnmuteSymbol(postid,holder.unmuteSymbolImageView,holder.muteSymbolImageView);
                                             isMuted = false;
+                                           onClickPostImage.onClickPost(isMuted);
                                            Log.e("Post mute", "post is NOT muted");
                                         }
                                     }else{

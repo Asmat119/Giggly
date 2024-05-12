@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PostDetailFragment extends Fragment {
+public class PostDetailFragment extends Fragment implements PostAdapter.OnClickPostImage {
 
     private String postId;
     private RecyclerView recyclerView;
@@ -50,7 +50,7 @@ public class PostDetailFragment extends Fragment {
 
 
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(getContext(), postList);
+        postAdapter = new PostAdapter(getContext(), postList,this::onClickPost);
         recyclerView.setAdapter(postAdapter);
 
         FirebaseDatabase.getInstance().getReference().child("Posts").child(postId).addValueEventListener(new ValueEventListener() {
@@ -69,5 +69,10 @@ public class PostDetailFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onClickPost(boolean isMuted) {
+
     }
 }
