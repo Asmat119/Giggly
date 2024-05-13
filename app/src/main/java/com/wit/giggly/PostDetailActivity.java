@@ -133,14 +133,9 @@ public class PostDetailActivity extends AppCompatActivity {
     private RecyclerView recyclerViewPosts;
 
     MediaPlayer mediaPlayer;
-    @Override
-    public void onBackPressed() {
-        postAdapter.stopAudio();
-        if (mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,7 +160,8 @@ public class PostDetailActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PostDetailActivity.this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
 //        linearLayoutManager.setStackFromEnd(true);
-        linearLayoutManager.setReverseLayout(true);
+//        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setReverseLayout(false);
         recyclerViewPosts.setLayoutManager(linearLayoutManager);
         SnapHelper mSnaphelp = new PagerSnapHelper();
         postList = new ArrayList<>();
@@ -687,6 +683,7 @@ public class PostDetailActivity extends AppCompatActivity {
 //                });
     }
 
+
     // Method to initialize and prepare the MediaPlayer asynchronously
     private void prepareMediaPlayer(final String audioUrl) {
         if (mediaPlayer != null) {
@@ -1155,20 +1152,34 @@ public class PostDetailActivity extends AppCompatActivity {
             mediaPlayerOld.release();
             mediaPlayerOld = null;
         }
+
+        postAdapter.stopAudio();
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+        stopAudio();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        stopAudio();
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        startAudio(retrievedPostaudioLink);
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
+        }
+//        startAudio(retrievedPostaudioLink);
     }
+
 
     private void getComments (String postId, final TextView text) {
         FirebaseDatabase.getInstance().getReference().child("Comments").child(postId).addValueEventListener(new ValueEventListener() {
