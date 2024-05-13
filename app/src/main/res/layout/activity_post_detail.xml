@@ -35,6 +35,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/postdetailrecycler"
+        app:layout_constraintStart_toStartOf="@+id/postdetailrecycler"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/muteSymbolImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/mute"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/postimage"
+            app:layout_constraintEnd_toEndOf="@+id/postimage"
+            app:layout_constraintStart_toStartOf="@+id/postimage"
+            app:layout_constraintTop_toTopOf="@+id/postimage" />
+
+        <ImageView
+            android:id="@+id/unmuteSymbolImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/speaker"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/postimage"
+            app:layout_constraintEnd_toEndOf="@+id/postimage"
+            app:layout_constraintStart_toStartOf="@+id/postimage"
+            app:layout_constraintTop_toTopOf="@+id/postimage" />
+
+    </RelativeLayout>
 <!--    <androidx.appcompat.widget.Toolbar-->
 <!--        android:id="@+id/toolbar"-->
 <!--        android:layout_width="match_parent"-->

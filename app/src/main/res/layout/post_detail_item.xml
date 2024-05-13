@@ -163,7 +163,6 @@
                 android:id="@+id/unmuteSymbolImageView"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-
                 android:src="@drawable/speaker"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="@+id/postimage"

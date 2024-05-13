@@ -51,6 +51,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.hendraanggrian.appcompat.widget.SocialTextView;
+import com.wit.giggly.Adapter.OnListItemClickListener;
 import com.wit.giggly.Adapter.PostAdapter;
 import com.wit.giggly.Model.MyCustomNotification;
 import com.wit.giggly.Model.Post;
@@ -128,7 +129,7 @@ public class PostDetailActivity extends AppCompatActivity {
     public  String postAuthorId;
     private int postCount = 0;
     AdmobNativeAdAdapter admobNativeAdAdapter;
-
+    //    boolean isMuted = false;
     ActivityPostDetailBinding binding;
     private RecyclerView recyclerViewPosts;
 
@@ -216,6 +217,23 @@ public class PostDetailActivity extends AppCompatActivity {
         });
         mSnaphelp.attachToRecyclerView(recyclerViewPosts);
         postAdapter = new PostAdapter(PostDetailActivity.this, postList);
+        postAdapter.setmListener(new OnListItemClickListener() {
+            @Override
+            public void onItemClicked(int position) {
+                // Mute or unmute
+                if (mediaPlayer != null) {
+                    if (!isMuted) {
+                        mediaPlayer.setVolume(0, 0);
+                        showMuteSymbol();
+                        isMuted = true;
+                    } else {
+                        mediaPlayer.setVolume(1, 1);
+                        showUnmuteSymbol();
+                        isMuted = false;
+                    }
+                }
+            }
+        });
         admobNativeAdAdapter = AdmobNativeAdAdapter.Builder.with(
                         PostDetailActivity.this.getString(R.string.native_ad_id),
                         postAdapter,
@@ -266,8 +284,8 @@ public class PostDetailActivity extends AppCompatActivity {
 //        noOfCommentstextview = findViewById(R.id.no_of_comments);
 //        descriptiontextview = findViewById(R.id.description);
 //        //newItemCard = itemView.findViewById(R.id.new_post_item_card);
-//        unmuteSymbolImageView = findViewById(R.id.unmuteSymbolImageView);
-//        muteSymbolImageView = findViewById(R.id.muteSymbolImageView);
+        unmuteSymbolImageView = findViewById(R.id.unmuteSymbolImageView);
+        muteSymbolImageView = findViewById(R.id.muteSymbolImageView);
 //        timestampdetailtextview = findViewById(R.id.timestampdetail);
 
 
@@ -690,6 +708,7 @@ public class PostDetailActivity extends AppCompatActivity {
             mediaPlayer.release();
         }
         mediaPlayer = new MediaPlayer();
+        mediaPlayer.setVolume(isMuted ? 0 : 1, isMuted ? 0 : 1);
         mediaPlayer.setLooping(true);
         currentAudioUrl = audioUrl;
 
