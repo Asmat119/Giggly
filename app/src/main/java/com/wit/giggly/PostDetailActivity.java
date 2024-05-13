@@ -115,7 +115,6 @@ public class PostDetailActivity extends AppCompatActivity implements PostAdapter
     public ConstraintLayout postclickRoot;
     public Button deletePost;
     public Button deletepostBtn;
-    boolean isMutedPlayer = false;
     private  int lastPosition;
     public Button whoisbtn;
     public ImageView closebtn;
@@ -134,14 +133,9 @@ public class PostDetailActivity extends AppCompatActivity implements PostAdapter
     private RecyclerView recyclerViewPosts;
 
     MediaPlayer mediaPlayer;
-    @Override
-    public void onBackPressed() {
-        postAdapter.stopAudio();
-        if (mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,7 +160,8 @@ public class PostDetailActivity extends AppCompatActivity implements PostAdapter
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PostDetailActivity.this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
 //        linearLayoutManager.setStackFromEnd(true);
-        linearLayoutManager.setReverseLayout(true);
+//        linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setReverseLayout(false);
         recyclerViewPosts.setLayoutManager(linearLayoutManager);
         SnapHelper mSnaphelp = new PagerSnapHelper();
         postList = new ArrayList<>();
@@ -183,14 +178,11 @@ public class PostDetailActivity extends AppCompatActivity implements PostAdapter
             Log.d(TAG, "onSnapPositionChange: post.getAudio() " + post.getAudio());
 
             if (mediaPlayer != null && (mediaPlayer.isPlaying() || isAdPosition)) {
-
                 releaseMediaPlayer();
             }
 
             if (!isAdPosition) {
                 // Initialize and prepare the MediaPlayer asynchronously
-
-
                 prepareMediaPlayer(post.getAudio());
             }
             // Check if the adjusted position corresponds to an ad
@@ -691,6 +683,7 @@ public class PostDetailActivity extends AppCompatActivity implements PostAdapter
 //                });
     }
 
+
     // Method to initialize and prepare the MediaPlayer asynchronously
     private void prepareMediaPlayer(final String audioUrl) {
         if (mediaPlayer != null) {
@@ -702,24 +695,12 @@ public class PostDetailActivity extends AppCompatActivity implements PostAdapter
 
         try {
             mediaPlayer.setDataSource(audioUrl);
-
             mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
                     // Start playback only if the prepared audio file URL matches the current audio URL
                     if (currentAudioUrl.equals(audioUrl)) {
-                        if(isMutedPlayer){
-                            mediaPlayer.setVolume(0, 0);
-                            mp.start();
-                        }
-                        else {
-                            mediaPlayer.setVolume(1, 1);
-                            mp.start();
-                        }
-
-
-
-
+                        mp.start();
                     }
                 }
             });
@@ -1171,27 +1152,34 @@ public class PostDetailActivity extends AppCompatActivity implements PostAdapter
             mediaPlayerOld.release();
             mediaPlayerOld = null;
         }
+
+        postAdapter.stopAudio();
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+        stopAudio();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        stopAudio();
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(isMutedPlayer){
-            startAudio(retrievedPostaudioLink);
-            mediaPlayer.setVolume(0,0);
+        if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
+            mediaPlayer.start();
         }
-        else {
-            startAudio(retrievedPostaudioLink);
-        }
-
-
+//        startAudio(retrievedPostaudioLink);
     }
+
 
     private void getComments (String postId, final TextView text) {
         FirebaseDatabase.getInstance().getReference().child("Comments").child(postId).addValueEventListener(new ValueEventListener() {
@@ -1749,18 +1737,6 @@ public class PostDetailActivity extends AppCompatActivity implements PostAdapter
 
     @Override
     public void onClickPost(boolean isMuted) {
-        isMutedPlayer = isMuted;
 
-        if(mediaPlayer.isPlaying()){
-            if (isMuted){
-
-                mediaPlayer.setVolume(0, 0);
-            }
-            else {
-
-                mediaPlayer.setVolume(1, 1);
-            }
-
-        }
     }
 }
